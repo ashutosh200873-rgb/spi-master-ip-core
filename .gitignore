@@ -1,0 +1,19 @@
+# ModelSim generated files
+sim/work/
+sim/*.vvp
+sim/*.ucdb
+sim/*.wlf
+sim/transcript
+
+# Quartus generated files
+quartus/db/
+quartus/incremental_db/
+quartus/output_files/
+quartus/*.rpt
+quartus/*.summary
+quartus/*.pin
+quartus/*.jdi
+quartus/*.qws
+
+# Scratch files
+*.vvp
