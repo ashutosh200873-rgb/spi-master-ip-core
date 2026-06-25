@@ -265,7 +265,8 @@ The script automatically:
 ## 📸 Simulation Waveforms
 
 ### Normal SPI Transfer (Mode 0)
-![Normal Transfer](images/normal_transfer.png)
+![Normal Transfer](images/normal_transfer.png)<img width="1694" height="462" alt="Normal Transfer" src="https://github.com/user-attachments/assets/322ec00c-92a0-48b9-a675-c01792a9485b" />
+
 > SS_N asserts → 8 SCLK pulses → SS_N deasserts | FSM: `00→01→10→00`
 
 ### Mid-Transfer STOP Abort (T12)
