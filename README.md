@@ -246,6 +246,6 @@ The script automatically:
 
 **Designed as part of B.Tech Project — Electronics & Communication Engineering**
 
-*Strict Verilog-2001 | AMBA APB | Motorola SPI V03.06 | Intel MAX 10*
+*Strict Verilog | AMBA APB | Motorola SPI V03.06 | Intel MAX 10*
 
 </div>
