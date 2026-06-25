@@ -289,13 +289,7 @@ The script automatically:
 | ModelSim Intel FPGA Edition | 10.5b | Simulation + Verification |
 
 
----
 
-## 📄 License
-
-This project is licensed under the MIT License.
-
----
 
 <div align="center">
 
