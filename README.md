@@ -59,10 +59,9 @@ This project implements a complete **SPI Master IP Core** with an **AMBA APB Sla
 
 ## 🏗️ Architecture
 
-```
+<img width="2532" height="1044" alt="Screenshot 2026-06-25 125701" src="https://github.com/user-attachments/assets/15a7b6a4-d9ce-432e-a3a1-b2e70910f38a" />
 
-┘
-```
+
 
 ### Block Descriptions
 
@@ -104,37 +103,8 @@ This project implements a complete **SPI Master IP Core** with an **AMBA APB Sla
 
 ## 🧠 FSM — Block 3
 
-```
-                    PRESETn=0 (async)
-                         │
-              ┌──────────▼──────────┐
-    ─────────►│      S_IDLE         │◄─────────────────────────┐
-              │      (2'b00)        │◄─────────┐               │
-              │  SS_N=1, TIP=0      │          │               │
-              └──────────┬──────────┘     STOP/WAIT+SWAI  unconditional
-                         │                  (ABORT)      (next cycle)
-              send_data=1 AND                  │               │
-              mstr=1 AND                       │               │
-              run_enable=1                     │               │
-                         │            ┌────────┴────────┐      │
-                         ▼            │                 │      │
-              ┌──────────────────┐    │  S_TRANSFER     │      │
-              │   S_TRANSFER     │────┘    (2'b01)      │      │
-              │    (2'b01)       │    SS_N=0, TIP=1     │      │
-              │  SS_N=0, TIP=1   │                      │      │
-              └──────────┬───────┘                      │      │
-                         │                              │      │
-              bit_counter=7 AND                         │      │
-              bit_period_done=1                         │      │
-                         │                              │      │
-                         ▼                              │      │
-              ┌──────────────────┐                      │      │
-              │     S_DONE       │──────────────────────┘      │
-              │    (2'b10)       │                             │
-              │ SS_N=1, TIP=0    │─────────────────────────────┘
-              │ receive_data=1   │
-              └──────────────────┘
-```
+<img width="1830" height="940" alt="Screenshot 2026-06-25 175314" src="https://github.com/user-attachments/assets/12564e51-fada-4f29-8872-ed037aa2c0fa" />
+
 
 ---
 
