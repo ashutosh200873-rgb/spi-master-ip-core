@@ -60,7 +60,7 @@ This project implements a complete **SPI Master IP Core** with an **AMBA APB Sla
 ## 🏗️ Architecture
 
 ```
-<img width="2532" height="1044" alt="Screenshot 2026-06-25 125701" src="https://github.com/user-attachments/assets/86cb7640-45c8-4177-b6a6-6d07dbda3212" />
+
 ┘
 ```
 
