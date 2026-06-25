@@ -7,7 +7,7 @@
 ![Sim](https://img.shields.io/badge/Simulation-ModelSim-green?style=for-the-badge)
 ![Device](https://img.shields.io/badge/Target-Intel%20MAX%2010-orange?style=for-the-badge)
 ![Tests](https://img.shields.io/badge/Tests-38%2F38%20PASS-brightgreen?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
+
 
 **A fully synthesizable, AMBA APB-interfaced SPI Master IP Core**  
 *Designed from scratch in strict Verilog | Verified with 22 directed test cases | Synthesized on Intel MAX 10 FPGA*
