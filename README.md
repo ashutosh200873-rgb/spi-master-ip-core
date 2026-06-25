@@ -1,6 +1,6 @@
 # APB-Interfaced SPI Master IP Core
 
-A fully synthesizable SPI Master IP Core implemented in strict Verilog-2001.
+A fully synthesizable SPI Master IP Core implemented.
 
 ## Features
 - AMBA APB Slave Interface
