@@ -63,23 +63,23 @@ This project implements a complete **SPI Master IP Core** with an **AMBA APB Sla
                         ┌─────────────────────────────────────────────┐
                         │           spi_master_top.v                  │
                         │                                             │
-  APB Bus ─────────────►│  ┌─────────────┐    ┌──────────────────┐  │
-  (PCLK,PRESETn,        │  │   Block 1   │    │    Block 2       │  │──► SCLK
-   PADDR,PSEL,          │  │  APB Slave  │───►│  Baud Rate Gen   │  │
-   PENABLE,PWRITE,      │  │  Interface  │    │  (Clock Gating)  │  │
-   PWDATA)              │  │  & Reg File │    └────────┬─────────┘  │
-                        │  └──────┬──────┘             │ flags      │
-  PRDATA ◄─────────────│         │ config              │            │
-  PREADY ◄─────────────│         │ send_data    ┌──────▼──────────┐ │
-  PSLVERR ◄────────────│         │              │    Block 4      │ │──► MOSI
-  IRQ ◄────────────────│         │              │  Shift Register │ │◄── MISO
-                        │         │              │  (TX/RX Engine) │ │
-                        │  ┌──────▼──────┐      └─────────────────┘ │
-                        │  │   Block 3   │                          │
-  SS_N ◄───────────────│  │ Slave Select│                          │
-                        │  │  Control    │                          │
-                        │  │    FSM      │                          │
-                        │  └─────────────┘                          │
+  APB Bus ─────────────►│  ┌─────────────┐    ┌──────────────────┐    │
+  (PCLK,PRESETn,        │  │   Block 1   │    │    Block 2       │    │──► SCLK
+   PADDR,PSEL,          │  │  APB Slave  │───►│  Baud Rate Gen   │    │
+   PENABLE,PWRITE,      │  │  Interface  │    │  (Clock Gating)  │    │
+   PWDATA)              │  │  & Reg File │    └────────┬─────────┘    │
+                        │  └──────┬──────┘             │ flags        │
+   PRDATA ◄─────────────│         │ config              │             │
+   PREADY ◄─────────────│         │ send_data    ┌──────▼──────────┐  │
+   PSLVERR ◄────────────│         │              │    Block 4      │  │──► MOSI
+   IRQ ◄────────────────│         │              │  Shift Register │  │◄── MISO
+                        │         │              │  (TX/RX Engine) │  │
+                        │  ┌──────▼──────┐      └─────────────────┘   │
+                        │  │   Block 3   │                            │
+   SS_N ◄───────────────│  │ Slave Select│                            │
+                        │  │  Control    │                            │
+                        │  │    FSM      │                            │
+                        │  └─────────────┘                            │
                         └─────────────────────────────────────────────┘
 ```
 
@@ -128,27 +128,27 @@ This project implements a complete **SPI Master IP Core** with an **AMBA APB Sla
                          │
               ┌──────────▼──────────┐
     ─────────►│      S_IDLE         │◄─────────────────────────┐
-              │      (2'b00)        │◄──────────┐              │
-              │  SS_N=1, TIP=0      │           │              │
+              │      (2'b00)        │◄─────────┐               │
+              │  SS_N=1, TIP=0      │          │               │
               └──────────┬──────────┘     STOP/WAIT+SWAI  unconditional
                          │                  (ABORT)      (next cycle)
-              send_data=1 AND                  │              │
-              mstr=1 AND                       │              │
-              run_enable=1                     │              │
-                         │            ┌────────┴────────┐     │
-                         ▼            │                 │     │
-              ┌──────────────────┐    │  S_TRANSFER     │     │
-              │   S_TRANSFER     │────┘    (2'b01)      │     │
-              │    (2'b01)       │    SS_N=0, TIP=1     │     │
-              │  SS_N=0, TIP=1   │                      │     │
-              └──────────┬───────┘                      │     │
-                         │                              │     │
-              bit_counter=7 AND                         │     │
-              bit_period_done=1                         │     │
-                         │                              │     │
-                         ▼                              │     │
-              ┌──────────────────┐                      │     │
-              │     S_DONE       │──────────────────────┘     │
+              send_data=1 AND                  │               │
+              mstr=1 AND                       │               │
+              run_enable=1                     │               │
+                         │            ┌────────┴────────┐      │
+                         ▼            │                 │      │
+              ┌──────────────────┐    │  S_TRANSFER     │      │
+              │   S_TRANSFER     │────┘    (2'b01)      │      │
+              │    (2'b01)       │    SS_N=0, TIP=1     │      │
+              │  SS_N=0, TIP=1   │                      │      │
+              └──────────┬───────┘                      │      │
+                         │                              │      │
+              bit_counter=7 AND                         │      │
+              bit_period_done=1                         │      │
+                         │                              │      │
+                         ▼                              │      │
+              ┌──────────────────┐                      │      │
+              │     S_DONE       │──────────────────────┘      │
               │    (2'b10)       │                             │
               │ SS_N=1, TIP=0    │─────────────────────────────┘
               │ receive_data=1   │
