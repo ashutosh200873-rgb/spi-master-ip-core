@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Language](https://img.shields.io/badge/Language-Verilog--2001-blue?style=for-the-badge&logo=v)
+![Language](https://img.shields.io/badge/Language-Verilog-blue?style=for-the-badge&logo=v)
 ![Tool](https://img.shields.io/badge/Synthesis-Quartus%20Prime%20Lite-red?style=for-the-badge)
 ![Sim](https://img.shields.io/badge/Simulation-ModelSim-green?style=for-the-badge)
 ![Device](https://img.shields.io/badge/Target-Intel%20MAX%2010-orange?style=for-the-badge)
@@ -10,7 +10,7 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)
 
 **A fully synthesizable, AMBA APB-interfaced SPI Master IP Core**  
-*Designed from scratch in strict Verilog-2001 | Verified with 22 directed test cases | Synthesized on Intel MAX 10 FPGA*
+*Designed from scratch in strict Verilog | Verified with 22 directed test cases | Synthesized on Intel MAX 10 FPGA*
 
 </div>
 
@@ -265,12 +265,15 @@ The script automatically:
 ## 📸 Simulation Waveforms
 
 ### Normal SPI Transfer (Mode 0)
+![Normal Transfer](images/normal_transfer.png)
 > SS_N asserts → 8 SCLK pulses → SS_N deasserts | FSM: `00→01→10→00`
 
 ### Mid-Transfer STOP Abort (T12)
+![Abort T12](images/abort_t12.png)
 > STOP mode asserted mid-transfer → SS_N immediately deasserts | FSM: `00→01→00` (S_DONE bypassed)
 
 ### Async Reset Mid-Transfer (T16)
+![Async Reset](images/async_reset_t16.png)
 > PRESETn=0 asserted during transfer → SS_N and SCLK immediately gate off (no clock edge needed)
 
 ---
@@ -281,7 +284,7 @@ The script automatically:
 |------|---------|---------|
 | Intel Quartus Prime Lite | 17.1 | Synthesis + Timing Analysis |
 | ModelSim Intel FPGA Edition | 10.5b | Simulation + Verification |
-| Git | Latest | Version Control |
+
 
 ---
 
