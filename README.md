@@ -255,7 +255,7 @@ The script automatically:
 
 | Resource | Used | Available | Utilization |
 |----------|------|-----------|-------------|
-| Logic Elements | — | 49,760 | < 1% |
+| Logic Elements | **232** | 49,760 | < 1% |
 | Registers | **99** | 49,760 | ~0.2% |
 | Memory Bits | 0 | 1,677,312 | 0% |
 | Multipliers | 0 | — | 0% |
