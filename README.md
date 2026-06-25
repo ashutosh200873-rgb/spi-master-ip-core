@@ -265,16 +265,18 @@ The script automatically:
 ## 📸 Simulation Waveforms
 
 ### Normal SPI Transfer (Mode 0)
-![Normal Transfer](images/normal_transfer.png)<img width="1694" height="462" alt="Normal Transfer" src="https://github.com/user-attachments/assets/322ec00c-92a0-48b9-a675-c01792a9485b" />
+<img width="1694" height="462" alt="Normal Transfer" src="https://github.com/user-attachments/assets/322ec00c-92a0-48b9-a675-c01792a9485b" />
 
 > SS_N asserts → 8 SCLK pulses → SS_N deasserts | FSM: `00→01→10→00`
 
 ### Mid-Transfer STOP Abort (T12)
-![Abort T12](images/abort_t12.png)
+<img width="1156" height="416" alt="Abort T12" src="https://github.com/user-attachments/assets/b0692e71-216c-4602-8862-872160643f8b" />
+
 > STOP mode asserted mid-transfer → SS_N immediately deasserts | FSM: `00→01→00` (S_DONE bypassed)
 
 ### Async Reset Mid-Transfer (T16)
-![Async Reset](images/async_reset_t16.png)
+<img width="1296" height="416" alt="Async Reset" src="https://github.com/user-attachments/assets/a11f657f-4f03-491f-bc93-7b0820c1942e" />
+
 > PRESETn=0 asserted during transfer → SS_N and SCLK immediately gate off (no clock edge needed)
 
 ---
